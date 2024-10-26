@@ -4,6 +4,7 @@ from datetime import datetime
 
 from src.pydantic_base import BaseSchema
 
+
 class Profile(BaseSchema):
     id: str
     "User id on sports website"
@@ -13,6 +14,7 @@ class Profile(BaseSchema):
     "User university email"
     medical_group: str
     "User medical group for sport"
+
 
 class Checkin(BaseSchema):
     title: str

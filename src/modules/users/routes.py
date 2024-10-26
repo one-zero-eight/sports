@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, tzinfo, timezone
+from datetime import datetime, timedelta, timezone
 
 import httpx
 from fastapi import APIRouter
