@@ -6,10 +6,24 @@ from fastapi.routing import APIRoute
 VERSION = "0.1.0"
 
 # Info for OpenAPI specification
-TITLE = "FastAPI template"
-SUMMARY = "FastAPI template for InNoHassle ecosystem."
+TITLE = "InNoHassle Sports API"
+SUMMARY = "Convenient access to InnoSport API for InNoHassle ecosystem."
 
-DESCRIPTION = None
+DESCRIPTION = """
+### About this project
+
+This is the API for Sports project in InNoHassle ecosystem developed by one-zero-eight community.
+
+Using this API you can fetch user's sports data from InnoSport API.
+
+Backend is developed using FastAPI framework on Python.
+
+Note: API is unstable. Endpoints and models may change in the future.
+
+Useful links:
+- [Sports API source code](https://github.com/one-zero-eight/sports)
+- [InNoHassle Website](https://innohassle.ru/)
+"""
 
 CONTACT_INFO = {
     "name": "one-zero-eight (Telegram)",

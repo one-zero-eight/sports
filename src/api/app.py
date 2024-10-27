@@ -21,6 +21,9 @@ app = FastAPI(
     contact=docs.CONTACT_INFO,
     license_info=docs.LICENSE_INFO,
     generate_unique_id_function=docs.generate_unique_operation_id,
+    servers=[
+        {"url": settings.app_root_path, "description": "Current"},
+    ],
     lifespan=lifespan,
     docs_url=None,
     redoc_url=None,
