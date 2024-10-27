@@ -1,5 +1,5 @@
 $schema: "./settings.schema.yaml"
 environment: development
 accounts:
-  # get from https://api.innohassle.ru/accounts/v0/tokens/generate-service-token?sub=service-name&scopes=users&only_for_me=true
+  # Get from https://api.innohassle.ru/accounts/v0/tokens/generate-service-token?sub=sports-local-dev&scopes=sport&only_for_me=true
   api_jwt_token: "secret"
