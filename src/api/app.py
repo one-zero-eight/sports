@@ -23,6 +23,14 @@ app = FastAPI(
     generate_unique_id_function=docs.generate_unique_operation_id,
     servers=[
         {"url": settings.app_root_path, "description": "Current"},
+        {
+            "url": "https://api.innohassle.ru/sports/v0",
+            "description": "Production environment",
+        },
+        {
+            "url": "https://api.innohassle.ru/sports/staging-v0",
+            "description": "Staging environment",
+        },
     ],
     lifespan=lifespan,
     docs_url=None,
