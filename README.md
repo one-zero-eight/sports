@@ -33,6 +33,10 @@ It checks Accounts user token and make request to InnoSport API on behalf of the
 > [!IMPORTANT]
 > For endpoints requiring authorization click "Authorize" button in Swagger UI
 
+> [!TIP]
+> Edit `settings.yaml` according to your needs, you can view schema in
+> [config_schema.py](src/config_schema.py) and in [settings.schema.yaml](settings.schema.yaml)
+
 **Set up PyCharm integrations**
 
 1. Run configurations ([docs](https://www.jetbrains.com/help/pycharm/run-debug-configuration.html#createExplicitly)).
