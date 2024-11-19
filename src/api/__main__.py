@@ -61,11 +61,13 @@ def check_and_prompt_api_jwt_token():
         token = input("  Enter the token here (or press Enter to skip): ").strip()
 
         if token:
-            accounts["api_jwt_token"] = token
-            settings["accounts"] = accounts
             try:
+                with open(SETTINGS_FILE, "r") as f:
+                    as_text = f.read()
+                as_text = as_text.replace("api_jwt_token: null", f"api_jwt_token: {token}")
+                as_text = as_text.replace("api_jwt_token: ...", f"api_jwt_token: {token}")
                 with open(SETTINGS_FILE, "w") as f:
-                    yaml.safe_dump(settings, f, default_flow_style=False, sort_keys=False)
+                    f.write(as_text)
                 print("  ✅ `accounts.api_jwt_token` has been updated in `settings.yaml`.")
             except Exception as e:
                 print(f"  ❌ Error updating `settings.yaml`: {e}")
