@@ -5,7 +5,6 @@ from fastapi import APIRouter
 
 from src.api.dependencies import CURRENT_USER_ID_DEPENDENCY
 from src.api.exceptions import IncorrectCredentialsException
-from src.logging_ import logger
 from src.modules.innohassle_accounts import innohassle_accounts
 from src.modules.users.schemas import ViewUser
 
@@ -30,7 +29,6 @@ async def get_me(innohassle_id: CURRENT_USER_ID_DEPENDENCY) -> ViewUser:
     Get current sport hours, semesters info, and nearest check-ins
     """
     sport_token = await innohassle_accounts.get_sport_token(innohassle_id)
-    logger.info(sport_token)
 
     async with get_authorized_client(sport_token) as client:
         response = await client.get("profile/student")
