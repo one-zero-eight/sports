@@ -24,7 +24,7 @@ def ensure_settings_file():
         return
 
     if SETTINGS_FILE.exists():
-        print("✅ `settings.yaml` already exists. Skipping copying.")
+        print("✅ `settings.yaml` exists.")
         return
 
     shutil.copy(SETTINGS_TEMPLATE, SETTINGS_FILE)
@@ -42,7 +42,7 @@ def check_and_prompt_api_jwt_token():
         return
 
     try:
-        with open(SETTINGS_FILE, "r") as f:
+        with open(SETTINGS_FILE) as f:
             settings = yaml.safe_load(f) or {}
     except Exception as e:
         print(f"❌ Error reading `settings.yaml`: {e}")
@@ -58,11 +58,11 @@ def check_and_prompt_api_jwt_token():
         webbrowser.open(ACCOUNTS_TOKEN_URL)
         print("  🔑 Please paste the generated token below:")
 
-        token = input("  Enter the token here (or press Enter to skip): ").strip()
+        token = input("  Enter the token here (or press Enter to skip):\n>").strip()
 
         if token:
             try:
-                with open(SETTINGS_FILE, "r") as f:
+                with open(SETTINGS_FILE) as f:
                     as_text = f.read()
                 as_text = as_text.replace("api_jwt_token: null", f"api_jwt_token: {token}")
                 as_text = as_text.replace("api_jwt_token: ...", f"api_jwt_token: {token}")
@@ -75,7 +75,7 @@ def check_and_prompt_api_jwt_token():
             print("  ⚠️ Token was not provided. Please manually update `settings.yaml` later.")
             print(f"  ➡️ Refer to the URL: {ACCOUNTS_TOKEN_URL}")
     else:
-        print("✅ `accounts.api_jwt_token` is already set.")
+        print("✅ `accounts.api_jwt_token` is specified.")
 
 
 def ensure_pre_commit_hooks():
@@ -92,7 +92,7 @@ def ensure_pre_commit_hooks():
         return
 
     if is_pre_commit_installed():
-        print("✅ Pre-commit hooks are already installed. Skipping pre-commit setup.")
+        print("✅ Pre-commit hooks are installed.")
         return
 
     try:
